@@ -17,8 +17,11 @@ def run():
     }
     
     for key, value in superDic.items():
-        print(key, "-", value)
+        print(key,":", value)
 
+    for values in superList:
+        for key, value in values.items():
+            print(f"{key}: {value}")
 
 
 
