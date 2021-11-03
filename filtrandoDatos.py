@@ -73,7 +73,14 @@ DATA = [
 
 
 def run():
-    pass
+    allPythonDevs = [worker["name"] for worker in DATA if worker["language"] == "python"]
+    allPlatziWorkers = [worker["name"] for worker in DATA if worker["organization"] == "Platzi"]
+    adults =  list(filter(lambda worker: worker["age"] > 18, DATA))
+    adults = list(map(lambda worker: worker["name"], adults))
+    oldPeople = list(map(lambda worker: worker | {"old": worker["age"] > 70}, DATA))
+    
+    for worker in oldPeople:
+        print(worker)
 
 if __name__ == "__main__":
     run()
